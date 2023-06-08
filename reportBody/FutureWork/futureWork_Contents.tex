@@ -1,0 +1,38 @@
+\chapter{Planning for Future Research - ELEC4840B}\label{ch-plan}
+Having completed the interim portion of this project requires planning for the following phase of this honours thesis. This section proposes milestones and work scheduling required to achieve the established deliverables of this project. Also outlined are brief descriptions of active areas of interest pertaining to the CyTex transformation. These areas aim to be explored in the remainder of the thesis. Such areas include further review of contemporary literature, better articulating the methods CyTex employs, and extending the CyTex transform in novel ways.
+
+
+% -----------------------------------
+\section{Project Milestones}
+\begin{description}
+\item[Deep learning model construction:]
+Using a transfer learning approach, a suitable DCNN will be constructed. This model will be closely aligned with the fine-tuned ResNet152 DCNN model utilised in \cite{CyTexRef}. Following the creation of the model the training period will commence. The expectation is that this process may take some time (potentially over a week per dataset). For this reason some of the subsequent milestones will be completed in parallel with this task.
+
+\item[Recreation of CyTex results:]
+After the development and training of a DCNN for EMODB and additional databases, the validation phase will begin. An accuracy approxiamte to those seen in \cite{CyTexRef}
+% , \textbf{*** Ref table if inserted into my report!},
+should be demonstrated. Having done so gives a baseline for the implementation of the method. Demonstrating correct implementation and adaptation to the relevant datasets. The primary goals of the thesis, to this point, have been rooted in gaining knowledge in the subject area and proving understanding via successful execution of learnt concepts. Beyond this point the dissertation will delve into new territory. The subsequent milestones investigate areas that have not necessarily been explored before, at least in terms of the CyTex transform. 
+
+\item[Alternative $F_0$ representations:]
+The basis of the CyTex transform relies heavily on the calculation of the fundamental frequency of specified length audio frames. By combining the frequency information over a larger time frame one can essentially replicate a multi-resolution analysis technique. Currently, key frequency information is calculated through use of the librosa package \cite{mcfee2015librosa}. This particular package employs an STFT using methods highlighted in \cite{SASPWEB2011_stanford}. However, there are a number of alternate methods available, producing a similar function. Further literature review into each of these methods will be conducted. Following this, the implementation of suitable candidate methods will be tested and compared to the baseline method. Upon comparison of alternate time and frequency analysis practices, recommendations will be made to ensure CyTex performance is maximised. Among the time and frequency analysis strategies investigated will be,
+\begin{itemize}
+    \item The Fourier Transform.
+    \item The Short-Time Fourier Transform.
+    \item The Gabor Transform.
+    \item The Wavelet Transform.
+\end{itemize}
+
+\item[Generalising CyTex to other data sources:]
+After execution of CyTex and investigation of improved fundamental frequency calculation, the transform's operation will be applied to other data sources. Areas of interest include classification of musical instruments, identification of artificially simulated sound sources, and animal classification. However, this investigation will largely depend on the accessibility of high quality, labelled, open-source data. For a number of the previously mentioned data types this may pose an issue.
+
+\item[Identifying weaknesses of CyTex:]
+Upon generalising CyTex and testing the transforms accuracy over various scenarios, the potential weaknesses of the transform should become evident. Should this not be the case, further testing and review of literature will be conducted to recognize such deficiencies. This identification is necessary for future researchers to be weary of ahead of their interactions with the transform. A set of scenarios for which CyTex is a prime candidate of feature extraction may be developed. It may also spawn an active interest in fortifying CyTex and removing such vulnerabilities for more consistent results. The flaws highlighted will also shape the direction of the investigation into extensions applied to CyTex in both this paper and future papers.
+
+\item[Investigation of CyTex extensions:]
+The final proposed milestone of the thesis involves investigating contemporary methods and proposing novel advancements to CyTex. It should be noted that this milestone is time dependent and the level of completion is not guaranteed, nor the final outcome. At the very least, however, the thesis will aim to suggest exciting topics for future research. As well as key areas for the CyTex transform to gain further relevance within the expanding field of SER. A number of potential enhancements are detailed in the following section of this report. It is likely that, due to time constraints and limiting of the project scope, only a single innovation (at most) will be thoroughly researched and employed.
+
+\end{description}
+
+
+% -----------------------------------
+

@@ -1,0 +1,53 @@
+\chapter{Introduction}\label{ch-intro}
+Perhaps one of humanity's greatest inventions is that of language. The ability to communicate through intricate articulations of sound. It defines us and our interactions to the world around us. Language, however, is not only a tool for communication, but also expression. How one's emotional state is expressed through speech may drastically alter how they are interpreted. It is the emotion that characterizes speech that makes it such an informative communication tool in the first place. One can see this simply by comparing a face-to-face conversation with one entirely based in text. Without the use of spoken audio one loses the context that emotion enriches spoken language with. \\ \\
+Machines are already capable of accurately identifying and acting on human speech. However, emotion is usually not a part of a machine's decision making process. Just as a human may respond differently to different emotional deliveries of speech, it is of interest that machines do so too. Consider the case of an aggravated driver ordering an autonomous vehicle to do something which may jeopardise the safety of the passengers. In this scenario a machine may identify the emotional state of the driver and could make decisions based on this knowledge.\\ \\
+Enter the field of Speech Emotion Recognition (SER). Despite existing for over two decades \cite{2decs}, only more recently has this field been gaining attention from the broader machine learning research community. The increase in attention can be attributed to the availability of more databases and powerful advancements in machine learning methods. Despite this recent garnering of attention, the field is still relatively infantile when compared to other branches of machine learning like image processing. In the case of image processing, this field has existed for nearly seven decades \cite{imgprocsurveyOLD}. Within such an area lies a wealth of high-performing, deeply trained models. These models demonstrate better bias and variance performance due to the larger training data pools and community interest in the image processing domain. Thus, it is only natural for one to hope to bridge the gap between the audio and image realms to make use of image processing models and techniques.\\ \\
+The CyTex transform represents a means of transforming a 1-dimensional audio time series data into a 2-dimensional textured RGB image. Thus, the nature of the machine learning problem becomes one of image classification, as opposed to an audio-based classification problem. Through this domain conversion, one can make use of the extensively broad array of image processing models available. This drastically saves time, increases usability, and improves the performance of models in a traditionally challenging domain. 
+
+
+\section{Motivation \& Applications}
+From a technical point of view, the key motivating factors of the CyTex transform are the reduced processing time and higher test accuracy. By converting the signal to an image, an entire assortment of audio pre-processing can be avoided. Further, image processing in machine learning is more equipped with ready made packages to perform such tasks. This means that the pre-processing itself becomes a much simpler task for the engineer. As previously mentioned, the accuracy of emotional classification is also increased. This is because the textured images can capture and articulate more information for the network to learn. These images have an extra dimensional quality, allowing for greater insight into the complicated time-frequency relations of the signal being analysed.
+\\ \\
+If one was to broadly categorize the useful components of acoustic human signals, the key features would be contents of the signal and how the contents were expressed. Put more simply, what was said and how it was said. As previously mentioned, speech processing, for the most part, currently only makes use of the first of these features. By utilising the emotional contents of a speech signal and acting accordingly, one can experience a more human-like interaction with a machine. Implementations of this technology range from finance and marketing, to Criminal Psychology. \cite{Ramakrishnan12} lists a number of interesting applications for SER, some of which are detailed below.
+\begin{description}
+\item[Smart Car Communication System\label{carComms}:]
+By taking into account the emotional state of both the driver and passengers, a semi-autonomous/autonomous vehicle can make more informed decisions. Improved safety strategies can be implemented and vocal commands of highly emotional users may be acted upon using alternate approaches. Advanced systems may be able to differentiate highly emotional users from emotionally stable users. Vehicle lockdown mechanisms may also be introduced for users who are deemed to be in an unfit state to drive. This would reduce the phenomena of road rage and could serve as a preventative measure for driving under the influence of illicit substances.
+
+\item[Machine Learning Lie Detection\label{LieDect}:]
+Humans are poor judges of deception. A meta-analysis of 206 studies demonstrated an average of 54\% correct lie-truth judgements \cite{lyingPsych}. This is only marginally better accuracy than classifying deception completely at random. This suggests that machine classification is a much better alternative. By analysing the emotional stress present in a speaker's voice one can gain insight into whether a subject is lying. This technology would see use in the legal sector by means of criminal conviction or anti-corruption enforcement.
+
+\item[Human-like Machine Banking\label{smartBank}:]
+Further security measures are being introduced to prevent fraud and theft of one's personal assets. One of the next security measures introduced may well be speaker authentication. The usefulness of emotion in this context can be considered in a theft scenario. Consider a user whom is pressured to make a transaction by a third party. The machine may be able to accept or deny this transaction based on the detected emotional state of the user. Enhanced security and authentication measures may also prevent clients from completing hasty transactions which they may come to regret.
+
+\item[Voice Mail Priority System\label{voiceMailSys}:]
+Currently voice mail is sorted on a phone by how recently the message was received. Priority is given to the voice mail which was received the longest time ago. This means that when a human user wishes to review a number of voice-mails they must listen through a number of, potentially no longer relevant, messages. This can become an issue if a particular voice message attempts to contact the user regarding an emergency. By identifying this, one would be able to prioritise responses to voice mails which require a higher sense of urgency. Furthering upon this concept, a person could be notified appropriately when they receive an audio message indicating high stress levels. 
+
+\end{description}
+
+
+
+\section{Research Objectives \label{sec:obj}}
+The objectives of this research project are listed below in a chronologically sequential order. The final objective is currently left broad and ambiguous as this is an active area of investigation. Any number of directions may be taken with regard to the extension of the usability of CyTex.
+\begin{itemize}
+    \item Review and document fundamental concepts necessary for understanding.
+    
+    \item Conduct contemporary literature review.
+
+    \item Expand upon the existing CyTex transform literature.
+    
+    \item Train a deep learning model, employing the CyTex transform to conduct an emotional classification of speech.
+    
+    \item Attempt to recreate former benchmark results demonstrated by Bakhshi et al. \cite{CyTexRef}.
+    
+    \item Make note of the current challenges of the CyTex transform and suggest expansions to its current applications. 
+\end{itemize}
+
+
+
+\section{Organisation of the Thesis}
+The thesis begins by extensively documenting foundational topics in relation to signal processing in a digital domain, see chapter \ref{ch-bas-acou}. This analysis is used to define speech signals in different contexts.\\ \\
+Chapter \ref{ch-lit-rev} then defines different models of emotion and highlights a number of pertinent characteristics that contextualise emotion in terms of prosodic speech features. A brief overview of SER frameworks is provided. With understanding of the general SER workflow, the reader is introduced to multiple formative studies from contemporary SER literature. Each of the papers discussed employs different strategies, all of which are based in deep learning. A number of barriers preventing the advancement of SER methods are introduced.\\ \\
+Chapter \ref{ch-theory} details the theoretical principles applied throughout this project. Concepts involving the speech to image transform are presented first, followed by an introduction of common SER benchmark datasets. The fundamentals of deep learning applied in this project exhibited, and finally the basics of transfer learning are formally discussed.\\ \\
+The implementation of the CyTex transform and a proposed deep learning model is detailed in chapter \ref{ch-ser_sim}. Multiple datasets were used and results as well as model development is provided for each case. A discussion of the obtained results and means to improve them is conducted.\\ \\
+The report closes with chapter \ref{ch-concl} detailing some weaknesses of the CyTex transform from the perspective of this study. In looking towards the future, suggestions for further research are made, as well as proposed work to be conducted prior to demonstration of this project.
+

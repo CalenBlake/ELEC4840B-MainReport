@@ -1,0 +1,48 @@
+\chapter{Concluding Remarks}\label{ch-concl}
+In studying and evaluating the CyTex transform as a means of emotional classification from speech, this chapter summarizes and expands upon some of the key findings of this report. As a number of the strengths of this method have been discussed in previous chapters, these are not addressed here in great detail. Instead, focus is dedicated towards identifying the weaknesses of this method and improving/extending this method for future research. A small list of tasks which will be undertaken to prepare for project demonstration is also discussed.
+
+% \section{Strengths of the CyTex Image}
+% Lossless transform\\
+% Higher accuracy than other methods\\
+% Allows for simple deep learning application and rapid + efficient training\\
+
+
+\section{Weaknesses of the CyTex Image}
+The CyTex transform has the benefit of only requiring knowledge of the fundamental frequency. While this means that the transform can be executed with limited information and processing, it also has its drawbacks. Depending heavily on a single characteristic of input data means that the CyTex transforms quality is entirely dependent on the method of extraction of that particular characteristic. In the case of this application, the piptrack method from the librosa library influences all results obtained \cite{mcfee2015librosa}. While this library is commonly used, alternative approaches should be investigated. Additionally, the other channels of the RGB image are also related to the fundamental frequency. These channels could instead be encoded with information relating to other prosodic features of the audio data.\\ \\
+For extending CyTex to other acoustic domains, it is likely that significant reworking is required to generalise this transform. One may consider an extension to the domain of musical instrument classification. Musical instruments operate over a larger bandwidth than that of the human range of speaking. Furthermore, different instruments may also produce spectra of noise that significantly overlaps with that produced by other instruments. We can then infer that pitch will not be an ideal determining factor for classification.\\ \\
+Evaluations on the RAVDESS dataset suggest that optimal tuning of CyTex parameters may be dataset dependent. This is particularly relevant for extending CyTex beyond the realms of human emotional speech data. The frequency range must be researched for each application such that relevant information is not lost during pitch extraction.\\ \\
+While the utilisation of CyTex images, although not compared in this study, has been demonstrated to be superior to MEL-Spectrograms, they require more work to implement. Packages and libraries exist for the generation of MEL-Spectrogram images and, due to the infancy of CyTex, the same community support does not exist.
+
+
+\section{Enhancements for Project Demonstration}
+Prior to the demonstration of the project, the following advancements are planned to be introduced to this project. Each point seeks to improve the results in terms of accuracy, validity and applicability, respectively.
+\begin{description}
+\item[Additional tuning of CyTex parameters:]
+In attempts to improve the accuracy of the methods discussed in this paper, the parameters of the CyTex image generative script will be progressively tuned. Following each tuning the proposed DCNN model will be trained and evaluated to see if the average test accuracy is increased. The primary parameter to be tuned is the maximum frequency threshold, however, the frame lengths and channel encoding may also be investigated. 
+
+\item[Introduction of separate test set:]
+Results will be recreated using a different composition of data for training and validating. However, the introduction of an independent test set which is separate from both the training and validation sets will be used. The proposed data split still utilises $80\%$ of the total data as the training set. However, the remaining data will be evenly divided into validation and test sets. The validation set will be used as a grade of performance during training. The test set will act as unseen data by the model and will be used to generate confusion matrix plots. This output will specify the accuracy displayed for each emotional class and also give information on which classes the model finds more difficult to categorise. 
+
+\item[Development of an interactive presentation:]
+A script will be developed which takes, as input, a user recorded speech sample. This speech sample will then be converted into a group of CyTex images (depending on the length of the signal) and analysed using the highest performing model trained on an English speaking dataset (RAVDESS). A barplot will be produced as the output, detailing the percentage of each emotion displayed by the user, aggregated over each of the generated CyTex images. It is acknowledged that the accuracy of such tests will be poor due to the significant difference between user simulated data and the training set. However, this extension merely seeks to provide a novel and interactive means of applying the technology presented in this work.
+
+\end{description}
+
+\section{Areas for Innovation}
+\begin{description}
+\item[Extending CyTex to higher dimensions:]
+One of the major benefits of the CyTex transform is the ability to encode additional feature information by transforming an audio signal into a two-dimensional textured image. This can potentially be taken a step further, however. By training the machine learning model with more information dense inputs, one would expect that the output classification would improve in accuracy. Additional information can be encoded into the input via creating inputs of larger dimensions. For example, a speech to three-dimensional image/object transform could be constructed. This extra dimension could encode information that would aid the classification of emotion. A third dimension could also be used to give greater temporal information, similar to the approach taken by Kim et al. \cite{kim2017speech}.
+
+\item[Generalise CyTex to other forms of acoustic data:]
+As of this time, CyTex has only been utilised in conjunction with human speech data. It is of great interest to substitute this training data for alternate data sources. In doing so, the applications for CyTex may become incredibly broad. One of the largest areas of interest in this region is that of animal data. Candidate datasets for such purposes have been identified. Particular datasets that appear promising for this task include the BirdVox-DCASE-20k and ESC-50 datasets, \cite{lostanlen_vincent_2018_1208080}, \cite{piczak2015dataset}. The BirdVox-DCASE-20k dataset is segmented in 10 second clips, which is an appropriate format for CyTex analysis. Both datasets also contain many samples, however, the ESC-50 contains audio types other than animals. Some additional sorting of the ESC-50 dataset must be performed prior to any kind of analysis. It is also hypothesised that pitch would yield sufficient identifiable characteristics to be able to differentiate between different animals. This means that the CyTex transform need not be significantly modified to sufficiently represent animal data. 
+\\ \\
+Another interesting domain for the application of CyTex is the musical audio domain. The most directly relevant classification problem is the classification of the emotion of music, however, this has not been investigated in any great depth. Musical instrument classification in monophonic and polyphonic audio samples can also be approached. However, as previously noted, significant restructuring of the CyTex transform need be applied. The IRMAS dataset has been identified as a suitable candidate dataset for such applications \cite{bosch2012comparison}.
+\end{description}
+
+
+\section{Conclusion}
+A successful review and inflation of literature pertinent to the CyTex transform was conducted. This thesis serves as a reference for those seeking to engage with CyTex and relevant SER literature. Many of the foundational concepts required for image classification in the SER domain were collated and surveyed within this body of work. In reading this report, one also gains sufficient knowledge of existing challenges faced by the SER domain and the CyTex transform specifically.\\
+CyTex images were generated for different datasets and interpreted by deep learning models using a transfer learning approach. This made use of one of the key advantages of the lossless speech to image transform, in utilising a pre-trained state of the art model.\\
+Key performance metrics were adequate in the instance of the EMODB dataset and were comparable with a select group of established methods. However, further adjustments to the structure and composition of the CyTex images should yield a classification accuracy closer to the results achieved by the original implementation of this transform. Additional tuning of the deep learning model should also be employed to improve the results demonstrated on other datasets.
+
+
